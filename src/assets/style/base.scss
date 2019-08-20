@@ -1,0 +1,91 @@
+@charset "utf-8";
+@import './element-ui';
+
+html, body {
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: Microsoft YaHei !important;
+}
+
+// 滚动条样式 --start
+.fancy-scrollbar {
+  overflow-y: auto!important;
+  -webkit-overflow-scrolling: touch;
+}
+
+textarea::-webkit-scrollbar, .fancy-scrollbar::-webkit-scrollbar {
+  height: 9px;
+  width: 9px;
+}
+textarea::-webkit-scrollbar-button:start:decrement,
+textarea::-webkit-scrollbar-button:end:increment,
+.fancy-scrollbar::-webkit-scrollbar-button:start:decrement,
+.fancy-scrollbar::-webkit-scrollbar-button:end:increment {
+  background: transparent;
+  display: none;
+}
+
+textarea::-webkit-scrollbar-thumb:vertical,
+textarea::-webkit-scrollbar-thumb:horizontal,
+.fancy-scrollbar::-webkit-scrollbar-thumb:vertical,
+.fancy-scrollbar::-webkit-scrollbar-thumb:horizontal {
+  background: #d3d3d3;
+  border-radius: 5px;
+  display: block;
+  height: 50px;
+}
+// 滚动条样式 --end
+
+.page-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+}
+
+// 全局页面头部样式
+.page-header {
+  height: 60px;
+  width: 100%;
+  font-size: 18px;
+  line-height: 60px;
+  padding-left: 12px;
+  color: #fff;
+  @include bg($header_bg);
+}
+
+// 文字左边竖线
+.vertical-line {
+  width: 3px;
+  height: 14px;
+  margin-right: 8px;
+  @include vertical_line($vertical_line);
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  border-radius: 3px;
+  height: 58px;
+  border: 1px solid #DCDFE6;
+  outline: none !important;
+  @include border_color_pseudo($boder_focus_color, $boder_focus_color);
+  font-family: Microsoft YaHei !important;
+  -webkit-overflow-scrolling: touch;
+}
+textarea::placeholder {
+  color: #6f6f6f;
+  font-size: 14px;
+  font-family: Microsoft YaHei !important;
+}
+
+.required-field {
+  color: red;
+}

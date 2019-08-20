@@ -1,0 +1,131 @@
+// 通过变量设置样式，默认是绿色调，如果需要改变颜色，可通过 [data-theme] 新增主题颜色并在 variable.scss 定义
+@charset "utf-8";
+@import "./variable";
+
+@mixin font_color($color) {
+  color: $color; 
+  [data-theme="theme-green"] & {
+    color: $font_color;
+  }
+}
+
+@mixin bg($color) {
+  background: linear-gradient(#{$color});
+  background: -moz-linear-gradient(#{$color});
+  background: -ms-linear-gradient(#{$color});
+  [data-theme="theme-green"] & {
+    background: linear-gradient(#{$header_bg});
+    background: -moz-linear-gradient(#{$header_bg});
+    background: -ms-linear-gradient(#{$header_bg});
+  }
+}
+
+@mixin bg_color($color) {
+  background-color: $color!important;
+  [data-theme="theme-green"] & {
+    background-color: $main_color!important;
+  }
+}
+
+@mixin border_color($color) {
+  border-color: $color!important;
+  [data-theme="theme-green"] & {
+    border-color: $main_color!important;
+  }
+}
+
+@mixin border_color_pseudo($hover_color, $focus_color) {
+  &:hover {
+    border-color: $hover_color!important;
+    [data-theme="theme-green"] & {
+      border-color: $boder_focus_color;
+    }
+  }
+  &:focus {
+    border-color: $boder_focus_color!important;
+    [data-theme="theme-green"] & {
+      border-color: $boder_focus_color;
+    }
+  }
+}
+
+@mixin icon_edit() {
+  color: $main_color;
+  [data-theme="theme-green"] & {
+    color: $main_color;
+  }
+}
+@mixin icon_edit_hover() {
+  color: $icon_color_hover;
+  [data-theme="theme-green"] & {
+    color: $icon_color_hover;
+  }
+}
+@mixin icon_edit_active() {
+  color: $icon_color_active;
+  [data-theme="theme-green"] & {
+    color: $icon_color_active;
+  }
+}
+
+@mixin border_direction($direction, $color) {
+  border-#{$direction}: 1px solid $color;
+  [data-theme="theme-green"] & {
+    border-#{$direction}: 1px solid $boder_direction_color;
+  }
+}
+
+@mixin icon_color($hover_color, $focus_color) {
+  &:hover {
+    color: $hover_color;
+    [data-theme="theme-green"] & {
+      border-bottom: 1px solid $icon_color_hover;
+    }
+  }
+  &:active {
+    color: $focus_color;
+    [data-theme="theme-green"] & {
+      border-bottom: 1px solid $icon_color_active;
+    }
+  }
+}
+
+@mixin vertical_line($color) {
+  background-color: $color;
+  [data-theme="theme-green"] & {
+    background-color: $vertical_line;
+  }
+}
+
+@mixin btn-primary($color, $hover_color, $active_color) {
+  color: #fff;
+  background-color: $color !important;
+  border-color: $color !important;
+  [data-theme="theme-green"] & {
+    background-color: $main_color !important;
+    border-color: $main_color !important;
+  }
+  &:hover {
+    background-color: $hover_color !important;
+    border-color: $hover_color !important;
+    [data-theme="theme-green"] & {
+      background-color: $icon_color_hover !important;
+      border-color: $icon_color_hover !important;
+    }
+  }
+  &:active {
+    background-color: $active_color !important;
+    border-color: $active_color !important;
+    [data-theme="theme-green"] & {
+      background-color: $icon_color_active !important;
+      border-color: $icon_color_active !important;
+    }
+  }
+}
+
+@mixin selected_bg($color) {
+  background-color: $color;
+  [data-theme="theme-green"] {
+    background-color: $selected_bg;
+  }
+}
